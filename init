@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pg_ctlcluster 10 main start
+trap 'pkill node' TERM
+unifi-protect
+pg_ctlcluster 10 main stop
